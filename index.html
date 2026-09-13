@@ -23,16 +23,32 @@ body{margin:0;background:#09090b;color:#fff;font-family:Arial,Helvetica,sans-ser
   content:"";
   position:absolute;
   inset:0;
-  background-image:
-    linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.08) 65%,rgba(0,0,0,.25)),
-    url("IMG_3079.JPG");
-  background-size:cover;
-  background-position:center;
-  transform:scale(1.01);
+  background:rgba(0,0,0,.28);
+  z-index:1;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.08) 65%,rgba(0,0,0,.18));
+  z-index:2;
+}
+.hero-image{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+  position:relative;
+  z-index:0;
 }
 .hero-content{
-  position:relative;
-  z-index:1;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:3;
   padding:50px 20px 60px;
 }
 .hero h1{
@@ -102,7 +118,7 @@ footer{text-align:center;padding:25px;color:#666;font-size:13px}
 }
 
 @media(max-width:700px){
-  .hero{min-height:62vh}
+  .hero{min-height:0}
   .hero h1{letter-spacing:-1.5px}
   .gallery{columns:2 145px;column-gap:10px;padding-top:20px}
   .photo{margin-bottom:10px;border-radius:12px}
@@ -112,6 +128,7 @@ footer{text-align:center;padding:25px;color:#666;font-size:13px}
 <body>
 
 <header class="hero">
+  <img class="hero-image" src="IMG_3079.JPG" alt="Madhavgarh Trip 2026 cover photo">
   <div class="hero-content">
     <h1>Madhavgarh Trip 2026</h1>
     <p>Our memories • Scroll to explore</p>
