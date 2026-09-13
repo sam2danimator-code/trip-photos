@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhavgarh Trip 2026</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#09090b;color:#fff;font-family:Arial,Helvetica,sans-serif}
+
+.hero{
+  min-height:72vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  background:#111;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.08) 65%,rgba(0,0,0,.25)),
+    url("IMG_3079.JPG");
+  background-size:cover;
+  background-position:center;
+  transform:scale(1.01);
+}
+.hero-content{
+  position:relative;
+  z-index:1;
+  padding:50px 20px 60px;
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(38px,8vw,82px);
+  line-height:1;
+  letter-spacing:-3px;
+}
+.hero p{
+  margin:16px 0 0;
+  color:#ddd;
+  font-size:16px;
+  letter-spacing:1px;
+}
+.scroll{
+  display:inline-block;
+  margin-top:28px;
+  padding:11px 20px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:30px;
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.gallery{
+  width:min(1400px,94%);
+  margin:auto;
+  padding:35px 0 70px;
+  columns:3 280px;
+  column-gap:18px;
+}
+.photo{
+  break-inside:avoid;
+  margin:0 0 18px;
+  overflow:hidden;
+  border-radius:18px;
+  background:#17171b;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(25px);
+  animation:show .7s ease forwards;
+}
+.photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  transition:transform .5s ease,filter .5s ease;
+}
+.photo:hover img{transform:scale(1.035);filter:brightness(1.08)}
+@keyframes show{to{opacity:1;transform:none}}
+
+.status{text-align:center;color:#888;padding:10px 20px 35px}
+footer{text-align:center;padding:25px;color:#666;font-size:13px}
+
+.lightbox{
+  position:fixed;inset:0;background:rgba(0,0,0,.95);
+  display:none;align-items:center;justify-content:center;
+  z-index:20;padding:20px;
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:95vw;max-height:92vh;object-fit:contain;border-radius:10px}
+.close{
+  position:fixed;top:18px;right:22px;width:44px;height:44px;
+  border:0;border-radius:50%;background:#fff;color:#111;
+  font-size:28px;cursor:pointer;
+}
+
+@media(max-width:700px){
+  .hero{min-height:62vh}
+  .hero h1{letter-spacing:-1.5px}
+  .gallery{columns:2 145px;column-gap:10px;padding-top:20px}
+  .photo{margin-bottom:10px;border-radius:12px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-content">
+    <h1>Madhavgarh Trip 2026</h1>
+    <p>Our memories • Scroll to explore</p>
+    <a class="scroll" href="#photos">View Photos ↓</a>
+  </div>
+</header>
+
+<div id="status" class="status">Loading photos…</div>
+<main id="photos" class="gallery"></main>
+
+<footer>Madhavgarh Trip 2026 ❤️</footer>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button class="close" aria-label="Close" onclick="event.stopPropagation();closeLightbox()">×</button>
+  <img id="bigImage" alt="" onclick="event.stopPropagation()">
+</div>
+
+<script>
+const owner = "samdesignsstudio";
+const repo = "trip-photos";
+const branch = "main";
+const cover = "IMG_3079.JPG";
+const imageExtensions = /\.(jpg|jpeg|png|webp|gif|avif)$/i;
+
+async function loadPhotos(){
+  const status = document.getElementById("status");
+  const gallery = document.getElementById("photos");
+
+  try{
+    const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
+    const response = await fetch(api);
+    if(!response.ok) throw new Error("GitHub API error");
+
+    const data = await response.json();
+
+    let photos = (data.tree || [])
+      .filter(item => item.type === "blob" && imageExtensions.test(item.path))
+      .map(item => item.path);
+
+    // Cover photo first, then all other photos.
+    photos.sort((a,b) => {
+      if(a === cover) return -1;
+      if(b === cover) return 1;
+      return a.localeCompare(b, undefined, {numeric:true, sensitivity:"base"});
+    });
+
+    if(!photos.length){
+      status.textContent = "No photos found yet.";
+      return;
+    }
+
+    status.textContent = `${photos.length} photos`;
+
+    photos.forEach((path,index)=>{
+      const box = document.createElement("div");
+      box.className = "photo";
+      box.style.animationDelay = `${Math.min(index * 0.025, 1.2)}s`;
+
+      const img = document.createElement("img");
+      img.src = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${encodeURI(path).replace(/#/g,"%23").replace(/\?/g,"%3F")}`;
+      img.loading = index === 0 ? "eager" : "lazy";
+      img.alt = index === 0 ? "Madhavgarh Trip 2026 cover photo" : `Madhavgarh Trip 2026 photo ${index}`;
+      img.onclick = () => openLightbox(img.src);
+
+      box.appendChild(img);
+      gallery.appendChild(box);
+    });
+  }catch(error){
+    status.textContent = "Photos load nahi ho pa rahe. GitHub repository public hai aur photos upload hain, ye check karein.";
+    console.error(error);
+  }
+}
+
+function openLightbox(src){
+  document.getElementById("bigImage").src = src;
+  document.getElementById("lightbox").classList.add("open");
+}
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("open");
+  document.getElementById("bigImage").src = "";
+}
+document.addEventListener("keydown",e=>{
+  if(e.key === "Escape") closeLightbox();
+});
+
+loadPhotos();
+</script>
+</body>
+</html>
