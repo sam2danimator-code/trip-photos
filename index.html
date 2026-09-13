@@ -171,7 +171,7 @@ async function loadPhotos(){
       box.style.animationDelay = `${Math.min(index * 0.025, 1.2)}s`;
 
       const img = document.createElement("img");
-      img.src = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${encodeURI(path).replace(/#/g,"%23").replace(/\?/g,"%3F")}`;
+      img.src = `/${repo}/${encodeURI(path).replace(/#/g,"%23").replace(/\?/g,"%3F")}`;
       img.loading = index === 0 ? "eager" : "lazy";
       img.alt = index === 0 ? "Madhavgarh Trip 2026 cover photo" : `Madhavgarh Trip 2026 photo ${index}`;
       img.onclick = () => openLightbox(img.src);
