@@ -5,124 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Madhavgarh Trip 2026</title>
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#09090b;color:#fff;font-family:Arial,Helvetica,sans-serif}
-
-.hero{
-  min-height:72vh;
-  position:relative;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
-  background:#111;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.28);
-  z-index:1;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.08) 65%,rgba(0,0,0,.18));
-  z-index:2;
-}
-.hero-image{
-  display:block;
-  width:100%;
-  height:auto;
-  max-height:none;
-  object-fit:contain;
-  object-position:center;
-  position:relative;
-  z-index:0;
-}
-.hero-content{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:3;
-  padding:50px 20px 60px;
-}
-.hero h1{
-  margin:0;
-  font-size:clamp(38px,8vw,82px);
-  line-height:1;
-  letter-spacing:-3px;
-}
-.hero p{
-  margin:16px 0 0;
-  color:#ddd;
-  font-size:16px;
-  letter-spacing:1px;
-}
-.scroll{
-  display:inline-block;
-  margin-top:28px;
-  padding:11px 20px;
-  border:1px solid rgba(255,255,255,.45);
-  border-radius:30px;
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-}
-
-.gallery{
-  width:min(1400px,94%);
-  margin:auto;
-  padding:35px 0 70px;
-  columns:3 280px;
-  column-gap:18px;
-}
-.photo{
-  break-inside:avoid;
-  margin:0 0 18px;
-  overflow:hidden;
-  border-radius:18px;
-  background:#17171b;
-  cursor:pointer;
-  opacity:0;
-  transform:translateY(25px);
-  animation:show .7s ease forwards;
-}
-.photo img{
-  display:block;
-  width:100%;
-  height:auto;
-  transition:transform .5s ease,filter .5s ease;
-}
-.photo:hover img{transform:scale(1.035);filter:brightness(1.08)}
-@keyframes show{to{opacity:1;transform:none}}
-
-.status{text-align:center;color:#888;padding:10px 20px 35px}
-footer{text-align:center;padding:25px;color:#666;font-size:13px}
-
-.lightbox{
-  position:fixed;inset:0;background:rgba(0,0,0,.95);
-  display:none;align-items:center;justify-content:center;
-  z-index:20;padding:20px;
-}
-.lightbox.open{display:flex}
-.lightbox img{max-width:95vw;max-height:92vh;object-fit:contain;border-radius:10px}
-.close{
-  position:fixed;top:18px;right:22px;width:44px;height:44px;
-  border:0;border-radius:50%;background:#fff;color:#111;
-  font-size:28px;cursor:pointer;
-}
-
-@media(max-width:700px){
-  .hero{min-height:0}
-  .hero h1{letter-spacing:-1.5px}
-  .gallery{columns:2 145px;column-gap:10px;padding-top:20px}
-  .photo{margin-bottom:10px;border-radius:12px}
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#09090b;color:#fff;font-family:'DM Sans',Arial,sans-serif}
+.hero{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:#111}.hero-image{display:block;width:100%;height:auto}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.05) 65%,rgba(0,0,0,.15));pointer-events:none}.hero-content{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:center;padding:45px 20px 60px}.eyebrow{display:inline-block;padding:8px 14px;border:1px solid #ffffff40;border-radius:999px;background:#ffffff12;backdrop-filter:blur(10px);font-size:12px;letter-spacing:1.5px;text-transform:uppercase}.hero h1{margin:18px 0 0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(42px,8vw,86px);line-height:.98;letter-spacing:-2px}.hero p{margin:15px 0 0;color:#ddd;font-size:15px}.scroll{display:inline-block;margin-top:24px;padding:11px 20px;border:1px solid #ffffff45;border-radius:999px;color:#fff;text-decoration:none;background:#ffffff12;backdrop-filter:blur(10px)}
+.gallery-wrap{max-width:1500px;margin:auto;padding:45px 3% 75px}.gallery-top{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}.gallery-title{margin:0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,4vw,46px)}.gallery-subtitle{margin:7px 0 0;color:#888;font-size:14px}.status{color:#777;font-size:13px;white-space:nowrap}.gallery{columns:4 240px;column-gap:16px}.photo{break-inside:avoid;margin:0 0 16px;overflow:hidden;border-radius:16px;background:#151517;cursor:pointer;position:relative;opacity:0;transform:translateY(22px);animation:show .65s ease forwards}.photo img{display:block;width:100%;height:auto;transition:transform .6s ease,filter .5s}.photo:hover img{transform:scale(1.035);filter:brightness(1.06)}@keyframes show{to{opacity:1;transform:none}}
+.lightbox{position:fixed;inset:0;background:#050506f7;display:none;align-items:center;justify-content:center;z-index:50;padding:70px}.lightbox.open{display:flex}.lightbox img{max-width:calc(100vw - 140px);max-height:calc(100vh - 125px);width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 20px 70px #0008}.lb-top{position:fixed;top:18px;left:22px;right:22px;display:flex;justify-content:space-between;z-index:55;pointer-events:none}.counter{padding:8px 13px;border:1px solid #ffffff29;border-radius:999px;background:#ffffff12;backdrop-filter:blur(10px);color:#ddd;font-size:13px}.close,.nav{border:1px solid #ffffff2e;background:#ffffff12;color:#fff;backdrop-filter:blur(12px);cursor:pointer}.close{pointer-events:auto;width:44px;height:44px;border-radius:50%;font-size:28px}.nav{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;font-size:30px;z-index:55}.nav:hover,.close:hover{background:#fff;color:#111}.prev{left:20px}.next{right:20px}.lb-hint{position:fixed;bottom:17px;left:50%;transform:translateX(-50%);color:#777;font-size:12px;z-index:55}footer{text-align:center;padding:25px;border-top:1px solid #171719;color:#555;font-size:12px}
+@media(max-width:1000px){.gallery{columns:3 220px}}@media(max-width:700px){.hero-content{padding-bottom:28px}.hero h1{letter-spacing:-1px}.hero p{font-size:13px}.gallery-wrap{padding:30px 3% 55px}.gallery{columns:2 145px;column-gap:9px}.photo{margin-bottom:9px;border-radius:12px}.lightbox{padding:55px 12px 45px}.lightbox img{max-width:96vw;max-height:82vh}.nav{width:43px;height:43px;font-size:25px}.prev{left:8px}.next{right:8px}.lb-hint{display:none}}
 </style>
 </head>
 <body>
@@ -130,91 +18,27 @@ footer{text-align:center;padding:25px;color:#666;font-size:13px}
 <header class="hero">
   <img class="hero-image" src="IMG_3079.JPG" alt="Madhavgarh Trip 2026 cover photo">
   <div class="hero-content">
+    <div class="eyebrow">✦ Travel memories</div>
     <h1>Madhavgarh Trip 2026</h1>
     <p>Our memories • Scroll to explore</p>
     <a class="scroll" href="#photos">View Photos ↓</a>
   </div>
 </header>
 
-<div id="status" class="status">Loading photos…</div>
-<main id="photos" class="gallery"></main>
+<section class="gallery-wrap"><div class="gallery-top"><div><h2 class="gallery-title">The Memories</h2><p class="gallery-subtitle">A collection of moments from Madhavgarh</p></div><div id="status" class="status">Loading photos…</div></div><main id="photos" class="gallery"></main></section><footer>Madhavgarh Trip 2026 · Made with ❤️</footer>
 
-<footer>Madhavgarh Trip 2026 ❤️</footer>
-
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <button class="close" aria-label="Close" onclick="event.stopPropagation();closeLightbox()">×</button>
-  <img id="bigImage" alt="" onclick="event.stopPropagation()">
-</div>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()"><div class="lb-top"><div id="counter" class="counter">1 / 1</div><button class="close" onclick="event.stopPropagation();closeLightbox()">×</button></div><button class="nav prev" onclick="event.stopPropagation();showPrev()">‹</button><img id="bigImage" alt="" onclick="event.stopPropagation()"><button class="nav next" onclick="event.stopPropagation();showNext()">›</button><div class="lb-hint">← → to navigate · Esc to close</div></div>
 
 <script>
-const owner = "sam2danimator-code";
-const repo = "trip-photos";
-const branch = "main";
-const cover = "IMG_3079.JPG";
-const imageExtensions = /\.(jpg|jpeg|png|webp|gif|avif)$/i;
-
-async function loadPhotos(){
-  const status = document.getElementById("status");
-  const gallery = document.getElementById("photos");
-
-  try{
-    const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
-    const response = await fetch(api);
-    if(!response.ok) throw new Error("GitHub API error");
-
-    const data = await response.json();
-
-    let photos = (data.tree || [])
-      .filter(item => item.type === "blob" && imageExtensions.test(item.path))
-      .map(item => item.path);
-
-    // Cover photo first, then all other photos.
-    photos.sort((a,b) => {
-      if(a === cover) return -1;
-      if(b === cover) return 1;
-      return a.localeCompare(b, undefined, {numeric:true, sensitivity:"base"});
-    });
-
-    if(!photos.length){
-      status.textContent = "No photos found yet.";
-      return;
-    }
-
-    status.textContent = `${photos.length} photos`;
-
-    photos.forEach((path,index)=>{
-      const box = document.createElement("div");
-      box.className = "photo";
-      box.style.animationDelay = `${Math.min(index * 0.025, 1.2)}s`;
-
-      const img = document.createElement("img");
-      img.src = `/${repo}/${encodeURI(path).replace(/#/g,"%23").replace(/\?/g,"%3F")}`;
-      img.loading = index === 0 ? "eager" : "lazy";
-      img.alt = index === 0 ? "Madhavgarh Trip 2026 cover photo" : `Madhavgarh Trip 2026 photo ${index}`;
-      img.onclick = () => openLightbox(img.src);
-
-      box.appendChild(img);
-      gallery.appendChild(box);
-    });
-  }catch(error){
-    status.textContent = "Photos load nahi ho pa rahe. GitHub repository public hai aur photos upload hain, ye check karein.";
-    console.error(error);
-  }
-}
-
-function openLightbox(src){
-  document.getElementById("bigImage").src = src;
-  document.getElementById("lightbox").classList.add("open");
-}
-function closeLightbox(){
-  document.getElementById("lightbox").classList.remove("open");
-  document.getElementById("bigImage").src = "";
-}
-document.addEventListener("keydown",e=>{
-  if(e.key === "Escape") closeLightbox();
-});
-
-loadPhotos();
+const owner="sam2danimator-code",repo="trip-photos",branch="main",cover="IMG_3079.JPG";const imageExtensions=/\.(jpg|jpeg|png|webp|gif|avif)$/i;let photoSources=[],currentIndex=0;
+async function loadPhotos(){const status=document.getElementById("status"),gallery=document.getElementById("photos");try{const r=await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`);if(!r.ok)throw new Error("GitHub API");const d=await r.json();let paths=(d.tree||[]).filter(x=>x.type==="blob"&&imageExtensions.test(x.path)).map(x=>x.path);paths.sort((a,b)=>a===cover?-1:b===cover?1:a.localeCompare(b,undefined,{numeric:true,sensitivity:"base"}));if(!paths.length){status.textContent="No photos found";return}photoSources=paths.map(x=>`/${repo}/${encodeURI(x).replace(/#/g,"%23").replace(/\?/g,"%3F")}`);status.textContent=`${photoSources.length} photos`;paths.forEach((path,i)=>{const box=document.createElement("div");box.className="photo";box.style.animationDelay=`${Math.min(i*.025,1.2)}s`;const img=document.createElement("img");img.src=photoSources[i];img.loading=i===0?"eager":"lazy";img.alt=`Madhavgarh Trip 2026 photo ${i+1}`;img.onclick=()=>openLightbox(i);box.appendChild(img);gallery.appendChild(box)})}catch(e){status.textContent="Photos load nahi ho pa rahe";console.error(e)}}
+function openLightbox(i){if(!photoSources.length)return;currentIndex=i;updateLightbox();document.getElementById("lightbox").classList.add("open");document.body.style.overflow="hidden"}
+function updateLightbox(){document.getElementById("bigImage").src=photoSources[currentIndex];document.getElementById("counter").textContent=`${currentIndex+1} / ${photoSources.length}`}
+function showNext(){if(photoSources.length){currentIndex=(currentIndex+1)%photoSources.length;updateLightbox()}}
+function showPrev(){if(photoSources.length){currentIndex=(currentIndex-1+photoSources.length)%photoSources.length;updateLightbox()}}
+function closeLightbox(){document.getElementById("lightbox").classList.remove("open");document.getElementById("bigImage").src="";document.body.style.overflow=""}
+document.addEventListener("keydown",e=>{if(!document.getElementById("lightbox").classList.contains("open"))return;if(e.key==="Escape")closeLightbox();if(e.key==="ArrowRight")showNext();if(e.key==="ArrowLeft")showPrev()});
+let sx=0,sy=0;const lb=document.getElementById("lightbox");lb.addEventListener("touchstart",e=>{sx=e.changedTouches[0].screenX;sy=e.changedTouches[0].screenY},{passive:true});lb.addEventListener("touchend",e=>{let dx=e.changedTouches[0].screenX-sx,dy=e.changedTouches[0].screenY-sy;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))dx<0?showNext():showPrev()});loadPhotos();
 </script>
 </body>
 </html>
